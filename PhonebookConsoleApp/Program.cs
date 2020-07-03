@@ -87,8 +87,8 @@ namespace PhonebookConsoleApp
             // Fetch query
             DBManager manager = new DBManager("dbConnString");
 
-            String sqlQuery = "Select * from user_data";
-            DataTable data = manager.ExecuteQuery(sqlQuery);
+            //String sqlQuery = "Select * from user_data";
+            //DataTable data = manager.ExecuteQuery(sqlQuery);
 
             //DataTable data = manager.ExecuteStoredProcedure("getAllUsers");
 
