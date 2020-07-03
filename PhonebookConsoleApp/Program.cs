@@ -92,12 +92,12 @@ namespace PhonebookConsoleApp
 
             //DataTable data = manager.ExecuteStoredProcedure("getAllUsers");
 
-            //Console.WriteLine("Enter User ID:");
-            //int userId = Convert.ToInt32(Console.ReadLine());
-            //List<SqlParameter> parameters = new List<SqlParameter>();
-            //parameters.Add(new SqlParameter("@userId", userId));
+            Console.WriteLine("Enter User ID:");
+            int userId = Convert.ToInt32(Console.ReadLine());
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@userId", userId));
 
-            //DataTable data = manager.ExecuteStoredProcedure("getUser", parameters);
+            DataTable data = manager.ExecuteStoredProcedure("getUser", parameters);
 
             foreach (DataRow dr in data.Rows)
             {
