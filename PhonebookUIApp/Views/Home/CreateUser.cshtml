@@ -1,0 +1,11 @@
+﻿@using PhonebookUIApp.Models
+@model UserData
+
+<h2>Create New User</h2>
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.UserName)
+    @Html.TextBoxFor(m => m.UserName)
+    <input type="submit" value="Submit" />
+}
+

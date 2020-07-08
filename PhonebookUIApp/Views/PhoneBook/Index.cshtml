@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@using PhonebookUIApp.Models
+@model UserModel
+
+<h2>PhoneBook Records</h2>
+
+<div class="phonebook">
+    <p>Phonebook:</p>
+    @foreach (UserPhoneBookData phonebook in Model.PhoneBook)
+    {
+        if (phonebook.Contacts.Count > 0)
+        {
+            <ul class="phonebooklist">
+                UserId:@phonebook.User.UserId, UserName: @phonebook.User.UserName
+                @foreach (UserData contacts in phonebook.Contacts)
+                {
+                    <li>Contact Name: @contacts.UserName</li>
+                }
+            </ul>
+        }
+    }
+</div>
+
+<div class="actions">
+    <h4>Create new phonebook Record</h4>
+    @using (Html.BeginForm("Create", "PhoneBook", FormMethod.Post))
+    {
+        @Html.LabelFor(m=>m.NewPhonebookRecord.UserId)
+        @Html.TextAreaFor(m=>m.NewPhonebookRecord.UserId)
+
+        @Html.LabelFor(m=>m.NewPhonebookRecord.ContactId)
+        @Html.TextAreaFor(m=>m.NewPhonebookRecord.ContactId)
+        
+        <input type="submit" value="Submit"/>
+    }
+</div>
+

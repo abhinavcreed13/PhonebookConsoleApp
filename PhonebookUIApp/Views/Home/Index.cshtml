@@ -16,20 +16,11 @@
         </ul>
     </div>
 
-    <div class="phonebook">
-        <p>Phonebook:</p>
-        @foreach (UserPhoneBookData phonebook in Model.PhoneBook)
-        {
-            if (phonebook.Contacts.Count > 0)
-            {
-                <ul class="phonebooklist">
-                    UserId:@phonebook.User.UserId, UserName: @phonebook.User.UserName
-                    @foreach (UserData contacts in phonebook.Contacts)
-                    {
-                        <li>Contact Name: @contacts.UserName</li>
-                    }
-                </ul>
-            }
-        }
+    <div class="actions">
+        @Html.Partial("CreateUser", Model.NewUser)
+
+        <h2>Update User</h2>
+
+        <h2>Delete User</h2>
     </div>
 </div>

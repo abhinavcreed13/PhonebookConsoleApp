@@ -11,6 +11,10 @@ namespace PhonebookUIApp.Models
 
         public List<UserPhoneBookData> PhoneBook { get; set; }
 
+        public UserData NewUser { get; set; }
+
+        public UserPhoneBook NewPhonebookRecord { get; set; }
+
         public UserModel()
         {
             Users = new List<UserData>();

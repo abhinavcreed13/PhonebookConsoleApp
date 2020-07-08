@@ -10,8 +10,9 @@ using System.Web.Mvc;
 
 namespace PhonebookUIApp.Controllers
 {
-    public class HomeController : Controller
+    public class PhoneBookController : Controller
     {
+        // GET: PhoneBook
         public ActionResult Index()
         {
             //SQL Server
@@ -62,8 +63,7 @@ namespace PhonebookUIApp.Controllers
             UserModel model = new UserModel
             {
                 Users = usersList,
-                PhoneBook = phonebook,
-                NewUser = new UserData()
+                PhoneBook = phonebook
             };
 
             // strongly typed view concept
@@ -71,12 +71,13 @@ namespace PhonebookUIApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(UserData data)
+        public ActionResult Create(UserModel data)
         {
             SQLDALManager manager = new SQLDALManager("dbConnKey");
-            manager.ExecuteStoredProcedure("createUser", new List<SqlParameter>
+            manager.ExecuteStoredProcedure("createUserPhoneBook", new List<SqlParameter>
             {
-                new SqlParameter("@userName",data.UserName)
+                new SqlParameter("@userId",data.NewPhonebookRecord.UserId),
+                new SqlParameter("@contactId",data.NewPhonebookRecord.ContactId)
             });
             return RedirectToAction("Index");
         }
